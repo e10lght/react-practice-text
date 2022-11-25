@@ -3,8 +3,8 @@ import styled from "styled-components"
 
 type Props = {
     children: string;
-    onClickButton: () => void;
-    liked: boolean;
+    onClickButton?: () => void;
+    liked?: boolean;
 }
 
 export const PrimaryButton: FC<Props> = (props) => {
@@ -33,5 +33,5 @@ const SButton = styled.button`
     ext-decoration: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    margin: 0;
+    margin: 5px 5px;
 `

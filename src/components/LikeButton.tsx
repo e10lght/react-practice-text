@@ -7,7 +7,6 @@ export const LikeButton: FC = (props) => {
 
     const onClick = () => {
         setLiked(!liked);
-        console.log(liked);
     }
 
     return (

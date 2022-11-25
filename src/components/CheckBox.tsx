@@ -9,7 +9,6 @@ type Props = {
 export const CheckBox: FC<Props> = memo((props) => {
     const { value, isFirst, id } = props;
     const [checked, setChecked] = useState(false);
-    console.log(checked)
 
     useEffect(() => {
         setChecked(isFirst);

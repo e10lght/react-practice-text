@@ -1,27 +1,23 @@
-import { ChangeEvent, useState } from "react";
-import styled from "styled-components"
+import { ChangeEvent, Dispatch, FC, memo, SetStateAction, useState } from "react";
 
+type Props = {
+    placeholder?: string;
+    setTitle?: Dispatch<SetStateAction<string>>;
+}
 
-export const InputText = () => {
-
-
+export const InputText: FC<Props> = memo((props) => {
+    const { placeholder, setTitle } = props;
     const [text, setText] = useState("");
 
     const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
         setText(e.target.value)
-        console.log(text);
+        setTitle?.(e.target.value)
     }
     return (
-        <SInput>
             <input
                 type="text"
+                placeholder={placeholder || "入力してください"}
                 onChange={onChangeText}
             />
-        </SInput>
-
     );
-}
-
-const SInput = styled.div`
-    display: block;
-`
+})

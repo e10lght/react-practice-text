@@ -2,16 +2,15 @@ import { ChangeEvent, Dispatch, FC, memo, SetStateAction, useState } from "react
 
 type Props = {
     placeholder?: string;
-    setTitle?: Dispatch<SetStateAction<string>>;
+    text?: string;
+    setText?: Dispatch<SetStateAction<string>>
 }
 
 export const InputText: FC<Props> = memo((props) => {
-    const { placeholder, setTitle } = props;
-    const [text, setText] = useState("");
+    const { placeholder, setText } = props;
 
     const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
-        setText(e.target.value)
-        setTitle?.(e.target.value)
+        setText?.(e.target.value)
     }
     return (
             <input

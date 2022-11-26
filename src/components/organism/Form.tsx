@@ -4,18 +4,34 @@ import styled from "styled-components";
 import { useState } from "react";
 import { InputTextButton } from "../molecules/InputTextButton";
 import { SelectBox } from "../atom/SelectBox";
+import { RadioButton } from "../atom/RadioButton";
+import { CheckBox } from "../atom/CheckBox";
 
 export const Form = () => {
     const [title, setTitle] = useState("React")
     const [language, setLanguage] = useState("HTML")
+    const [text, setText] = useState("");
+    const [checkedValue, setCheckedValue] = useState([""])
+
+    const onClicktitle = () => setTitle(text);
 
     return (
         <SForm>
             <h1>I love{title}</h1>
-            <InputTextButton placeholder="h1要素が変化します" setTitle={setTitle} />
+            <InputTextButton
+                onClickTitle={onClicktitle}
+                text={text}
+                setText={setText}
+            />
             <h3>現在選択されている言語：{language}</h3>
             <SelectBox setLanguage={setLanguage} />
-            </SForm>
+            <RadioButton />
+            <h3>現在選択されている値：{checkedValue.join()}</h3>
+            <CheckBox
+                setCheckedValue={setCheckedValue}
+                checkedValue={checkedValue}
+            />
+        </SForm>
     );
 }
 

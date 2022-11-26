@@ -4,6 +4,13 @@ type Props = {
     setLanguage?: Dispatch<SetStateAction<string>>
 }
 
+const values: any = [
+    { id: 1, item: "HTML" },
+    { id: 2, item: "CSS" },
+    { id: 3, item: "JavaScript" },
+    { id: 4, item: "PHP" }
+];
+
 export const SelectBox: FC<Props> = memo((props) => {
     const { setLanguage } = props;
 
@@ -13,9 +20,16 @@ export const SelectBox: FC<Props> = memo((props) => {
 
     return (
         <select onChange={onChangeSelect}>
-            <option value="HTML">HTML</option>
-            <option value="CSS">CSS</option>
-            <option value="JavaScript">JavaScript</option>
+            {values.map((value: any) =>
+            (
+                <option
+                    key={value.id}
+                    value={value.item}
+                >
+                    {value.item}
+                </option>
+            )
+            )}
         </select>
     );
 })

@@ -1,9 +1,9 @@
-import { Children, FC } from "react";
+import { Children, Dispatch, FC, SetStateAction } from "react";
 import styled from "styled-components"
 
 type Props = {
     children: string;
-    onClickButton?: () => void;
+    onClickButton?: React.MouseEventHandler<HTMLButtonElement> | undefined;
     liked?: boolean;
 }
 

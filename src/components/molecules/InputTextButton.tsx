@@ -5,16 +5,22 @@ import { Dispatch, FC, SetStateAction, useState } from "react";
 
 type Props = {
     placeholder?: string;
-    setTitle?: Dispatch<SetStateAction<string>>;
+    onClickTitle: React.MouseEventHandler<HTMLButtonElement> | undefined;
+    text: string;
+    setText?: Dispatch<SetStateAction<string>>;
 }
 
 export const InputTextButton: FC<Props> = (props) => {
-    const { setTitle, placeholder } = props;
+    const { placeholder, onClickTitle, text, setText } = props;
 
     return (
         <SInputTextButton>
-            <InputText placeholder={placeholder} setTitle={setTitle} />
-            <PrimaryButton>入力</PrimaryButton>
+            <InputText
+                placeholder={placeholder}
+                text={text}
+                setText={setText}
+            />
+            <PrimaryButton onClickButton={onClickTitle}>入力</PrimaryButton>
         </SInputTextButton>
     );
 }

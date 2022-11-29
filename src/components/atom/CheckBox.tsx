@@ -25,7 +25,6 @@ export const CheckBox: FC<Props> = memo((props) => {
         e.target.checked
             ? setCheckedValue([...checkedValue,e.target.value])
             : setCheckedValue(checkedValue.filter((elm)=> elm !== e.target.value))
-        setChecked(!checked);
     }
 
     return (

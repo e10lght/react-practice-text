@@ -5,7 +5,7 @@ import { Dispatch, FC, SetStateAction, useState } from "react";
 
 type Props = {
     placeholder?: string;
-    onClickTitle: React.MouseEventHandler<HTMLButtonElement> | undefined;
+    onClickTitle?: React.MouseEventHandler<HTMLButtonElement> | undefined;
     text: string;
     setText?: Dispatch<SetStateAction<string>>;
 }
